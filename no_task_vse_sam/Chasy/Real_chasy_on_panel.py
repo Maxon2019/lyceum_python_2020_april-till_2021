@@ -8,7 +8,8 @@ class DigitalClock(QMainWindow):
         super().__init__()
 
         self.setWindowTitle('Digital Clock - powered by MX productions')  # надпись сверху
-        self.setGeometry(500, 300, 550, 150)  # размеры
+        self.setGeometry(400, 300, height, wide)  # размеры
+        self.setWindowIcon(QtGui.QIcon('clock_img.jpg'))
         # описываем процесс
         self.initUI()
         self.timer = QtCore.QTimer(self)
@@ -19,7 +20,7 @@ class DigitalClock(QMainWindow):
         self.clock_screen = QLCDNumber(self)
         self.clock_screen.setStyleSheet("color : lightyellow; background-color : lightblue")
         self.clock_screen.setDigitCount(8)
-        self.clock_screen.setGeometry(0, 0, 550, 150)
+        self.clock_screen.setGeometry(0, 0, height, wide)
         self.current_time()
 
     def current_time(self):
@@ -28,6 +29,7 @@ class DigitalClock(QMainWindow):
 
 
 if __name__ == '__main__':
+    height, wide = map(int, input('Введите высоту и ширину окна через пробел: ').split())
     app = QApplication(sys.argv)
     clock = DigitalClock()
     clock.show()
