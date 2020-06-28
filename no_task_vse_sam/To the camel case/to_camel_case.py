@@ -6,22 +6,11 @@ referred to as Pascal case).
 
 
 def to_camel_case(text):
-    text_first = text
-    text = text.title()
-
-    if text.count('-') > 0:
-        text_list = text.split('-')
-        text_first_list = text_first.split('-')
-    else:
-        text_list = text.split('_')
-        text_first_list = text_first.split('-')
-    if text_list[0] == text_first_list[0]:
-        pass
-    else:
-        text_list[0] = text_list[0].lower()
-
-    return ''.join(text_list)
+    removed = text.replace('-', ' ').replace('_', ' ').split()
+    if len(removed) == 0:
+        return ''
+    return removed[0] + ''.join([x.capitalize() for x in removed[1:]])
 
 
 if __name__ == "__main__":
-    print(to_camel_case("The-stealth-warrior"))
+    print(to_camel_case("The_stealth_warrior"))

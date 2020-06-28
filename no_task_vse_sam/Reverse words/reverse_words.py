@@ -21,5 +21,4 @@ def reverse_words(str):
     return " ".join(map(lambda word: word[::-1], str.split(' ')))
 
 
-if __name__ == "__main__":
-    print(reverse_words("stressed desserts"))
+
