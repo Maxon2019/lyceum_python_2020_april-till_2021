@@ -30,8 +30,8 @@ def sqInRect(lng, wdth):
                 print(f'- long {lng}')
                 square_list.append(lng)
                 wdth -= lng
-            else:
-                square_list.append(1)
+            elif wdth == lng:
+                square_list.append(lng)
                 bill = False
     return square_list
 
