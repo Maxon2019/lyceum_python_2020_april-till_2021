@@ -18,8 +18,12 @@ def pig_it(text):
             i = ''.join(i)
             i += first_let + 'ay'
             final_list.append(i)
-    return ' '.join(final_list), final_list, to_pig_text_list
+    return ' '.join(final_list)
 
 
 if __name__ == '__main__':
     print(pig_it('nunc'))
+    # лучшее:
+'''    def pig_it(text):
+        lst = text.split()
+        return ' '.join([word[1:] + word[:1] + 'ay' if word.isalpha() else word for word in lst])'''
