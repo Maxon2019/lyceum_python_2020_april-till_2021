@@ -13,11 +13,13 @@ def pig_it(text):
             final_list.append(i)
         else:
             first_let = i[0]
-            i = i.replace(i[0], '')
+            i = list(i)
+            i[0] = ''
+            i = ''.join(i)
             i += first_let + 'ay'
             final_list.append(i)
-    return ' '.join(final_list)
+    return ' '.join(final_list), final_list, to_pig_text_list
 
 
 if __name__ == '__main__':
-    print(pig_it('Hello world !'))
+    print(pig_it('nunc'))
